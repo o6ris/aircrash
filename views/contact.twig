@@ -1,0 +1,24 @@
+
+{% extends 'layout.twig' %}
+{% block body %}
+{% if firstname is defined and lastname is defined %} 
+    <strong>Hello</strong> {{ firstname }} {{ lastname }} !
+{% else %}
+	<h1>Formulaire de test</h1>
+	<form action="" method="post">
+    	<ul>
+            <li>
+                <label for="lastname">Nom :</label>
+                <input type="text" name="lastname" id="lastname" />
+            </li>
+            <li>
+                <label for="firstname">Prénom :</label>
+                <input type="text" name="firstname" id="firstname" />
+            </li>
+            <li>
+                <input type="submit" value="Envoyer" />
+            </li>
+        </ul>
+    </form>
+{% endif %}
+{% endblock %}

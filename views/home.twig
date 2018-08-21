@@ -1,0 +1,16 @@
+{# 
+Le extends permet de se baser sur une structure, des que vous utilisez un extends tout le reste de votre code devra être obligatoirement dans un / ou plusieurs block mais jamais à l'exterieur
+#}
+{% extends 'layout.twig' %}
+
+{% block body %}
+Bienvenue sur la page d'accueil
+
+{# 
+	Pour utiliser la methode url dans twig 
+	il faut installer "symfony/twig-bridge" avec composer 
+	les nom envoyé dans la methode url doivent être la valeur
+	d'un bind de l'une de vos routes
+
+#}
+{% endblock %}

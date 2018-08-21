@@ -1,0 +1,19 @@
+{% extends 'layout.twig' %}
+{% block body %}
+	<h1>Connectez Vous !</h1>
+	<form action="" method="post">
+    	<ul>
+            <li>
+                <label for="email">Email :</label>
+                <input type="text" name="email" id="email" />
+            </li>
+            <li>
+                <label for="password">Mot de passe :</label>
+                <input type="password" name="password" id="password" />
+            </li>
+            <li>
+                <input type="submit" value="Envoyer" />
+            </li>
+        </ul>
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+    "require": {
+        "silex/silex": "^2.2",
+        "twig/twig": "^2.5",
+        "symfony/twig-bridge": "^3.4"
+    },
+    "autoload" : {
+    	"psr-4" : {
+        	"AirCrash\\" : "src/air_crash"
+        }
+    }
+
+}
