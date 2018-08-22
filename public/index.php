@@ -17,6 +17,17 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => dirname(__DIR__).'/views/',
 ));
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'    => 'pdo_mysql',
+            'host'      => 'localhost',
+            'dbname'    => 'AirCrash',
+            'user'      => 'root',
+            'password'  => 'troiswa',
+            'charset'   => 'utf8mb4',
+    ),
+));
+
 // inclusion des routes
 include 'route.php';
 

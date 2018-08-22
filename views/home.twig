@@ -4,7 +4,53 @@ Le extends permet de se baser sur une structure, des que vous utilisez un extend
 {% extends 'layout.twig' %}
 
 {% block body %}
-Bienvenue sur la page d'accueil
+<form action="booking.php" method="POST">
+	
+	<ul>
+		<li>
+			<label for="departure">Ville de départ</label>
+			<input type="text" name="departure" id="departure">
+
+			<select name="departure-search" id="departure-search">
+				<option value=""></option>
+			</select>
+
+		</li>
+
+		<li>
+			<label for="arrival">Arrivée</label>
+			<input type="text" name="arrival" id="arrival">
+
+			<select name="arrival-search" id="arrival-search">
+				<option value=""></option>
+			</select>
+
+		</li>
+
+		<li>
+			<label for="departure-date">Date de départ</label>
+			<input type="date" name="departure-date" id="departure-date">
+		</li>
+
+		<li>
+			<label for="arrival-date">Date d'arrivée</label>
+			<input type="date" name="arrival-date" id="arrival-date">
+		</li>
+
+		<li>
+			<label for="numberOfSeats">Nombre de passagers</label>
+			<input type="number" name="numberOfSeats" id="numberOfSeats">
+		</li>
+
+		<li>
+			<button type="submit" id="search">Rechercher</button>
+		</li>
+
+	</ul>
+
+
+</form>
+
 
 {# 
 	Pour utiliser la methode url dans twig 
