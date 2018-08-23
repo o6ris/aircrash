@@ -17,6 +17,17 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => dirname(__DIR__).'/views/',
 ));
 
+
+$app->register(new Silex\Provider\AssetServiceProvider(), array(
+    'assets.named_packages' => array(
+        'css' => array('base_path' => 'assets/css/'),
+        'images' => array('base_path' => 'assets/images/'),
+        'javascript' => array('base_path' => 'assets/js/')
+    ),
+));
+
+
+
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'    => 'pdo_mysql',

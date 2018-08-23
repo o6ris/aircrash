@@ -4,52 +4,107 @@ Le extends permet de se baser sur une structure, des que vous utilisez un extend
 {% extends 'layout.twig' %}
 
 {% block body %}
-<form action="booking.php" method="POST">
+<form action="booking.php" method="POST" id="flight-search-form">
 	
-	<ul>
-		<li>
-			<label for="departure">Ville de départ</label>
-			<input type="text" name="departure" id="departure">
+	<div id="search-all">
 
-			<select name="departure-search" id="departure-search">
-				<option value=""></option>
-			</select>
+		<div id="departure-and-arrival">
+		
+			<ul>
 
-		</li>
+				<li>
+					<label for="departure-country-search">Pays de départ</label>
+					<select name="departure-country-search" id="departure-country-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.country }}">{{ airport.country }}</option>
+					{% endfor %}
+					</select>
+				</li>
 
-		<li>
-			<label for="arrival">Arrivée</label>
-			<input type="text" name="arrival" id="arrival">
+				<li>
+					<label for="departure-city-search">Ville de départ</label>
+					<select name="departure-city-search" id="departure-city-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.city }}" data-departureCountry="{{airport.country}}">{{ airport.city }}</option>
+					{% endfor %}
+					</select>
+				</li>
 
-			<select name="arrival-search" id="arrival-search">
-				<option value=""></option>
-			</select>
+				<li>
+					<label for="departure-airport-search">Aéroport de départ</label>
+					<select name="departure-airport-search" id="departure-airport-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.id }}" data-departureCity="{{ airport.city }}">{{ airport.name }}</option>
+					{% endfor %}
+					</select>
+				</li>
 
-		</li>
+				<li>
+					<label for="departure-date">Date de départ</label>
+					<input type="date" name="departure-date" id="departure-date">
+				</li>
 
-		<li>
-			<label for="departure-date">Date de départ</label>
-			<input type="date" name="departure-date" id="departure-date">
-		</li>
+			</ul>
+			
+				<!-- LES ARRIVEES -->
 
-		<li>
-			<label for="arrival-date">Date d'arrivée</label>
-			<input type="date" name="arrival-date" id="arrival-date">
-		</li>
+			<ul>
 
-		<li>
-			<label for="numberOfSeats">Nombre de passagers</label>
-			<input type="number" name="numberOfSeats" id="numberOfSeats">
-		</li>
+				<li>
+					<label for="arrival-country-search">Pays d'arrivée</label>
+					<select name="arrival-country-search" id="arrival-country-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.country }}">{{ airport.country }}</option>
+					{% endfor %}
+					</select>
+				</li>
 
-		<li>
-			<button type="submit" id="search">Rechercher</button>
-		</li>
+				<li>
+					<label for="arrival-city-search">Ville d'arrivée'</label>
+					<select name="arrival-city-search" id="arrival-city-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.city }}" data-arrivalCountry="{{airport.country}}">{{ airport.city }}</option>
+					{% endfor %}
+					</select>
+				</li>
 
-	</ul>
+				<li>
+					<label for="arrival-airport-search">Aéroport d'arrivée'</label>
+					<select name="arrival-airport-search" id="arrival-airport-search">
+					{% 	for airport in airports %}
+						<option value="{{ airport.id }}" data-arrivalCity="{{ airport.city }}">{{ airport.name }}</option>
+					{% endfor %}
+					</select>
+				</li>
+				{#
+				<li>
+					<label for="arrival-date">Date d'arrivée</label>
+					<input type="date" name="arrival-date" id="arrival-date">
+				</li>
+				#}
 
+			</ul>
+
+		</div>
+
+		<ul>
+
+			<li>
+				<label for="numberOfSeats">Nombre de passagers</label>
+				<input type="number" name="numberOfSeats" min="1" id="numberOfSeats">
+			</li>
+
+			<li>
+				<button type="button" id="search">Rechercher</button>
+			</li>
+
+		</ul>
+
+	</div>
 
 </form>
+
+<div id="show_flights"></div>
 
 
 {# 

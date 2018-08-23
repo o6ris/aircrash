@@ -1,0 +1,39 @@
+#flight-search-form{
+	margin-top: 20px;
+}
+
+#flight-search-form #departure-and-arrival{
+	
+	/*width: 700px;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#flight-search-form #search-all{
+	border: 1px solid grey;
+	width: 500px;
+}
+
+#search-all{
+	text-align: center;
+}
+
+#flight-search-form li{
+	list-style : none;
+	margin: 10px;
+}
+
+#flight-search-form ul{
+	padding: 0;
+}
+
+#flight-search-form label{
+	display: inline-block;
+	width: 100px;
+	vertical-align: middle;
+}
+
+#flight-search-form select, input{
+	width: 130px;
+}

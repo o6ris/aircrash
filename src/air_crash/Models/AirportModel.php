@@ -9,10 +9,15 @@ use Doctrine\DBAL\Connection;
 
 class AirportModel
 {
-	public function displayFlight(Application $app)
+	public function searchFlight(Application $app)
 	{
-		$sql = "SELECT `name`, `city`, `country` FROM airport";
-		return $app['db']->fetchAll($sql);
 
+		$sql = "SELECT `id`, `name`, `city`, `country` FROM airport ORDER BY name ASC";
+		return $app['db']->fetchAll($sql);
 	}
+
+	// public function displayFlight(Application $app)
+	// {
+	// 	$sql = "SELECT * FROM `flight` WHERE "
+	// }
 }

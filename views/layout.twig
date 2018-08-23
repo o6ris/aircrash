@@ -2,13 +2,23 @@
 <html>
 	<head>
 		<title>Exemple Silex Twig</title>
+
+		<link rel="stylesheet" href="{{ asset('style.css', 'css') }}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="{{ asset('main.js', 'javascript') }}"></script>
+
 	</head>
 	<body>
-		<a href="{{ url('home') }}"><h1>Air' Crash</h1></a>
-		<nav>
-			<a href="{{ url('contact') }}">Nous contacter</a>
-			<a href="{{ url('login') }}">Connexion</a>
-		</nav>
-		{% block body %}{% endblock %}
+		<header>
+			<a href="{{ url('home') }}"><h1>Air' Crash</h1></a>
+			<nav>
+				<a href="{{ url('contact') }}">Nous contacter</a>
+				<a href="{{ url('login') }}">Connexion</a>
+			</nav>
+			{% block body %}{% endblock %}
+
+		</header>
+
+		<script src="{{ asset('Homepage.js', 'javascript') }}"></script>
 	</body>
 </html>

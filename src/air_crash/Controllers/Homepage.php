@@ -10,10 +10,17 @@ class Homepage
     {
 
     	$oAirportModel = new AirportModel();
-    	$airports = $oAirportModel->displayFlight($app);
-    	var_dump($airports);
-        return $app['twig']->render('home.twig');
+    	$airports = $oAirportModel->searchFlight($app);
+    	// var_dump($airports);
+        return $app['twig']->render(
+        	'home.twig',
+        	[
+        		'airports' => $airports
+        	]
+        	);
+        
     }
+
 
 
 }

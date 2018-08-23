@@ -25,4 +25,8 @@ $app->post('/contact', 'AirCrash\Controllers\Contact::submitForm');
 $app->get('/login', 'AirCrash\Controllers\LoginController::showForm')
 ->bind('login');
 
+$app->get('/searchflight', 'AirCrash\Controllers\DisplayFlight::search')
+->bind('search');
+
+
 $app->post('/login', 'AirCrash\Controllers\LoginController::onSubmitForm');
